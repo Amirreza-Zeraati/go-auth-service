@@ -1,23 +1,55 @@
+# Go Auth Service
+
+A simple JWT-based authentication service built with Go and the Gin web framework.
+
+## 🔐 Features
+
+- User Signup
+- User Login with JWT generation
+- Protected route using middleware
+
+## 🛠 Tech Stack
+
+- Go (Golang)
+- Gin framework
+- JWT
+- PostgreSQL (or your preferred database)
+- Environment configuration via `.env`
+
 ---
 
-## 🔐 Auth Service
+## 🚀 Endpoints
 
-this service handles:
+| Method | Endpoint    | Description                 |
+|--------|-------------|-----------------------------|
+| POST   | /signup     | Register a new user         |
+| POST   | /login      | Authenticate and get a JWT  |
+| GET    | /private    | Access protected resource   |
 
-- User signup (`/signup`)
-- User login with JWT generation (`/login`)
-- Protected route requiring JWT (`/private`)
+---
 
-### 📦 Dependencies
-- `github.com/gin-gonic/gin`
-- `https://github.com/githubnemo/CompileDaemon`
-- Gorm | sqlite | postgres
-- JWT package (e.g., `github.com/golang-jwt/jwt`)
-- `.env` configuration for secrets and DB connection
+## ⚙️ Getting Started
 
-### 🔧 Endpoints
+### Prerequisites
+
+- Go 1.20+
+- PostgreSQL
+- `.env` file in the root directory
+
+### Example `.env`
+```bash
+DB_URL=postgres://user:password@localhost:5432/dbname
+SECRET=your_jwt_secret_key
+```
+
+---
+
+### Run the Server
 
 ```bash
-POST   /signup    # Create a new user
-POST   /login     # Login and receive a JWT token
-GET    /private   # Access protected resource (JWT required)
+go run main.go
+```
+
+## 🧪 Testing
+Use Postman, Httpie, curl, or any REST client to test the endpoints. Include the JWT token in the Authorization header for the /private route
+
